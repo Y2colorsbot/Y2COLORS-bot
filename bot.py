@@ -1,9 +1,11 @@
-@ -0,0 +1,140 @@
 import logging
 import os
 import math
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler, CallbackContext
+
+# تحذير: لا تضع التوكن مباشرة في الكود إذا كنت ستشاركه أو تنشره على GitHub، استخدم متغير بيئة بدلاً من ذلك.
+TELEGRAM_TOKEN = "8570383855:AAFpGoZq-tPcyP6cHKR6WOSfWYyIivhDuQY"
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -111,9 +113,9 @@ def error(update: Update, context: CallbackContext):
     logger.warning('Update caused error: %s', context.error)
 
 def main():
-    token = os.environ.get('TELEGRAM_TOKEN')
+    token = TELEGRAM_TOKEN
     if not token:
-        print('Error: set TELEGRAM_TOKEN environment variable')
+        print('Error: TELEGRAM_TOKEN not set')
         return
 
     updater = Updater(token=token, use_context=True)
